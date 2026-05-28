@@ -1,0 +1,72 @@
+---
+title: "Homework 03"
+author: "Emilio Ojemann"
+date: 2026-05-27
+execute:
+  warning: false
+  message: false
+  fig-width: 4
+  fig-height: 5
+format: 
+  pdf:
+    toc: true
+---
+
+# Part 1. Set up tasks
+
+## GitHub steps
+- Created repository on GitHub
+- Added description, made public, contains a README
+
+## RStudio steps
+
+**Read in packages**
+
+```{r}
+
+library(tidyverse)
+library(here)
+library(janitor)
+library(readxl)
+
+```
+
+
+**Store kelp data**
+
+```{r}
+
+kelp <- read_csv("../data/temp-kelp.csv")
+
+```
+
+**Store personal data**
+
+
+
+
+# Part 2. Problems
+
+## Problem 1. Giant kelp fronds
+
+**a. An appropriate test**
+
+To determine the strength of the relationship between temperature and giant kelp frond elongation rate, I would use either a Pearson correlation or a 
+
+**b. Create a visualization**
+
+**c. Check your assumptions and run your test**
+
+**d. Results communication**
+
+**e. Test implications*
+
+**f. Double check your own work**
+
+
+## Problem 2. Personal data
+
+## Problem 3. Affective visualization
+
+## Problem 4. Statistical critique
+
