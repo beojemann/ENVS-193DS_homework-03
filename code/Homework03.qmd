@@ -51,9 +51,16 @@ kelp <- read_csv("../data/temp-kelp.csv")
 
 **a. An appropriate test**
 
-To determine the strength of the relationship between temperature and giant kelp frond elongation rate, I would use either a Pearson correlation or a 
+To determine the strength of the relationship between the ocean temperature and giant kelp frond elongation rate, two viable test would be either a Pearson correlation or Spearman's rank correlation.
+
+Pearson's correlation helps to describe the strength and direction of an assumed linear relationship between two continuous, normally distributed variables. It additionally assumes independent observations. The correlation coefficient "r" is specifically helpful to describe how much of the variance in elongation rate is attributed to temperature.
+
+Spearman's rank correlation is the non-parametric version, making no assumption about the distribution of the variables. The data is treated as ranked, so only a monotonic relationship is needed and, just like the Pearson's correlation, requires independent observations. 
+
 
 **b. Create a visualization**
+
+
 
 **c. Check your assumptions and run your test**
 
