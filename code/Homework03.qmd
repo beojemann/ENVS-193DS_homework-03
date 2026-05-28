@@ -5,8 +5,6 @@ date: 2026-05-27
 execute:
   warning: false
   message: false
-  fig-width: 4
-  fig-height: 5
 format: 
   pdf:
     toc: true
@@ -60,11 +58,57 @@ Spearman's rank correlation is the non-parametric version, making no assumption 
 
 **b. Create a visualization**
 
+```{r}
 
+# base layer: ggplot
+ggplot(data = kelp, # kelp data frame
+       aes(x = temp_c, # x-axis: temperature
+           y = kelp_elong)) + # y-axis: elongation rate
+  geom_point(color = "green4", # non-default color
+             size = 1.5, # size of points
+             alpha = 0.7) + # transparency of points
+  # title and axis labels
+  labs(title = "As temperature increases, kelp frond decreases", # informative title
+       x = "Temperature (˚C)", # x axis label with units
+       y = "Kelp elongation (cm/day)") + # y axis label with units
+  theme_classic() # non-default theme
+
+
+```
 
 **c. Check your assumptions and run your test**
 
+```{r}
+
+# fitting a linear model
+kelp_model <- lm(kelp_elong ~ temp_c, # response ~ predictor
+                 data = kelp) # data frame 
+
+# checking assumptions
+par(mfrow = c(2,2)) # 2x2 grid
+plot(kelp_model) # residuals v fitted, Q-Q, scale-location, leverage
+par(mfrow = c(1,1)) # reset grid
+
+
+```
+I checked the plots above for several assumptions after fitting the model. First, I assessed linearity of points in the 1b visualization; there is a visible negative relationship between temperature and elongation rate. 
+
+Homoscedasticity is checked in the with the Residuals v. Fitted and Scale-Location plots. The residuals are evenly scattered around the dotted line in the former and latter. 
+
+Then, normality of residuals is assessed with Q-Q plot. The points in the plot generally follow the diagonal reference line. There is some deviation toward the ends of the line, though the normality assumption is generally met. 
+
+
+```{r}
+
+cor.test(kelp$temp_c,
+         kelp$kelp_elong,
+         method = "pearson")
+
+```
+
 **d. Results communication**
+
+
 
 **e. Test implications*
 
